@@ -1,0 +1,512 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+  background: transparent; }
+
+main, article, aside, figure, footer, header, nav, section, details, summary {
+  display: block; }
+
+/* Handle box-sizing while better addressing child elements:
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+/* Responsive images and other embedded objects */
+/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+img,
+object,
+embed {
+  max-width: 100%; }
+
+/*
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+  In fact, it *will* cause problems with Google Maps' controls at small size.
+  If this is the case for you, try uncommenting the following:
+
+#map img {
+    max-width: none;
+}
+*/
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll; }
+
+/* we use a lot of ULs that aren't bulleted.
+  you'll have to restore the bullets within content,
+  which is fine because they're probably customized anyway */
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: separate;
+  border-spacing: 0; }
+
+th {
+  font-weight: bold;
+  vertical-align: bottom; }
+
+td {
+  font-weight: normal;
+  vertical-align: top; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */ }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom; }
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+select, input, textarea {
+  font: 99% sans-serif; }
+
+table {
+  font-size: inherit;
+  font: 100%; }
+
+small {
+  font-size: 85%; }
+
+strong {
+  font-weight: bold; }
+
+td, td img {
+  vertical-align: top; }
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible; }
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+@font-face {
+  font-family: Verdana;
+  src: url("../fonts/ver.ttf");
+  font-weight: normal; }
+
+@font-face {
+  font-family: Verdana;
+  src: url("../fonts/verb.ttf");
+  font-weight: bold; }
+
+@font-face {
+  font-family: Verdana;
+  src: url("../fonts/veri.ttf");
+  font-weight: normal;
+  font-style: italic; }
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-size: 13px; }
+
+body {
+  font-family: Verdana, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  color: #fff;
+  background: #180b05; }
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .flex.space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .flex.mid {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+  .flex.center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+
+button {
+  border: none;
+  background: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: none;
+  outline: none;
+  padding: 0; }
+
+input, textarea {
+  outline: none;
+  background: #ffffff;
+  border: 1px solid #f1f1f1;
+  font-size: 16px;
+  color: #000;
+  -webkit-appearance: none; }
+  input:focus, textarea:focus {
+    background: #f6ffec; }
+
+input {
+  width: 315px;
+  height: 30px;
+  padding: 0 15px; }
+
+textarea {
+  padding: 15px;
+  resize: none;
+  margin: 10px auto 0;
+  height: 240px; }
+  textarea::-webkit-input-placeholder {
+    font-size: 20px;
+    color: #eae9e9;
+    font-weight: normal;
+    font-style: italic; }
+  textarea:-ms-input-placeholder {
+    font-size: 20px;
+    color: #eae9e9;
+    font-weight: normal;
+    font-style: italic; }
+  textarea::-ms-input-placeholder {
+    font-size: 20px;
+    color: #eae9e9;
+    font-weight: normal;
+    font-style: italic; }
+  textarea::placeholder {
+    font-size: 20px;
+    color: #eae9e9;
+    font-weight: normal;
+    font-style: italic; }
+
+.w-full {
+  width: 100%; }
+
+.text-center {
+  text-align: center; }
+
+.content {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto; }
+
+main {
+  padding-bottom: 20px;
+  background: url(../images/bg-main.jpg?v=1);
+  background-position: center;
+  background-size: 100%;
+  background-attachment: fixed; }
+
+header {
+  background-image: url(../images/banner.jpg?v=1);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 0;
+  padding-top: 33%;
+  position: relative; }
+  header .header-wrapp {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+
+header .lang {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  background: #679933;
+  color: #fff;
+  padding:0 8px; }
+header .lang li {
+  padding: 8px;
+  font-size: 25px;
+  cursor:pointer }
+header .lang li.active { font-weight:bold }
+
+h1 {
+  margin: 10px auto; }
+  h1 .logo {
+    display: inline-block;
+    width: 145px;
+    height: 145px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+
+h2.title {
+  font-size: 50px;
+  color: #fff;
+  font-weight: bold;
+  background: #679933;
+  padding: 8px 0; }
+
+p.sub-title {
+  font-size: 16px;
+  font-style: italic;
+  padding: 10px 0 50px; }
+
+.input-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 7px; }
+
+.area-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px; }
+
+.required-icon {
+  color: #f00; }
+
+.input-sub {
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 10px; }
+  .input-sub ~ p span {
+    margin-left: 10px;
+    cursor: pointer; }
+
+.error-msg {
+  display: none;
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px; }
+.error-msg.show {
+  display: inline-block; }
+
+.mt-30 {
+  margin-top: 30px; }
+
+.mb-15 {
+  margin-bottom: 20px; }
+
+.btn-submit {
+  background: #679933;
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 30px auto 15px; }
+  .btn-submit.loading {
+    opacity: 0.75;
+    cursor: not-allowed; }
+  .btn-submit:hover {
+    background: #6cab2b; }
+
+.thanks {
+  font-size: 20px;
+  text-transform: uppercase; }
+
+footer {
+  background: #679933;
+  padding: 7px 0 5px; }
+  footer .social-link span {
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff; }
+  footer .social-link a {
+    display: inline-block;
+    margin-left: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  footer .copyright {
+    font-size: 12px;
+    color: #fff; }
+    footer .copyright span {
+      font-size: 11px;
+      font-weight: bold; }
+
+.success-icon {
+  margin: 30px auto 10px; }
+  .success-icon svg {
+    width: 30px;
+    height: 30px; }
+
+.btn-success {
+  background: #679933;
+  width: 130px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 30px auto 15px; }
+  .btn-success:hover {
+    background: #6cab2b; }
+@media only screen and (max-width: 768px) {
+  header {
+    background-size: cover;
+    background-attachment: inherit;
+    padding-top: 35%;
+    background-position: center top; }
+  header .lang li { font-size:20px }
+  main {
+    min-height: calc(100vh - 285px);
+    background-size: cover; }
+  h1 .logo {
+    width: 120px; }
+  h2.title {
+    font-size: 40px;
+    padding: 4px 0 5px; }
+  p.sub-title {
+    padding: 10px 0 30px; }
+  input {
+    height: 35px; }
+  textarea {
+    height: 230px; } }
+
+@media only screen and (max-width: 640px) {
+  header {
+    background-size: 100%;
+    padding-top: 25%; }
+  header .lang li {
+    padding: 5px;
+    font-size:16px }
+  h2.title {
+    font-size: 22px;
+    padding: 3px 0; }
+  p.sub-title {
+    font-size: 14px;
+    padding: 5px 15px 10px; }
+  h1 .logo {
+    width: 70px; }
+  main {
+    /*min-height: calc(100vh - 130px);*/ }
+  .input-title {
+    font-size: 14px;
+    margin-bottom: 5px; }
+  textarea {
+    height: 200px;
+    margin: 5px auto 0; }
+  .first-col > div {
+    width: calc((100% - 20px)/2); }
+    .first-col > div input {
+      width: 100%; }
+  .area-title {
+    font-size: 13px;
+    margin-top: 10px; }
+  .input-sub {
+    font-size: 12px;
+    margin-bottom: 7px;
+    margin-top: -3px; }
+  .btn-submit {
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 22px;
+    margin-bottom: 40px;
+    margin-top: 20px; }
+  .thanks {
+    font-size: 16px; } }
+
+@media screen and (min-aspect-ratio: 13 / 9) and (max-width: 850px) {
+  .first-col > div {
+    width: calc((100% - 20px)/2); }
+    .first-col > div input {
+      width: 100%; }
+  input {
+    height: 40px; }
+  textarea {
+    height: 150px; } }
